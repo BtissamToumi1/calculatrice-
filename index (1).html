@@ -13,8 +13,8 @@
           <div class="operators">
             <div class="button-item" >+</div>
             <div class="button-item" >-</div>
-            <div class="button-item" >&times;</div>
-            <div class="button-item" >&divide;</div>
+            <div class="button-item" id="multi">&times;</div>
+            <div class="button-item" id="div">&divide;</div>
           </div>
           <div class="leftPanel">
             <div class="numbers">
@@ -34,11 +34,11 @@
             </div>
             <div class="numbers">
               <div class="button-item">0</div>
-              <div >.</div>
-              <div  id="clear">C</div>
+              <div class="button-item">.</div>
+              <div  onclick="clear()" id="clear">C</div>
             </div>
           </div>
-          <div class="equal" id="result">=</div>
+          <div class="equal" id="result" onclick="resultat()">=</div>
         </div>
       </div> 
       <script src="script.js"></script>
