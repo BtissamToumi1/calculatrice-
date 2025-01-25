@@ -92,24 +92,42 @@ function resultat(){
         }
              if(positionMoins!==-1){
                 calcul.trim;
-            let partie3;
-                partie3=parseInt(calcul.substring(0,positionMoins));
-                  console.log(partie3);
+            let partie1;
+                partie1=parseInt(calcul.substring(0,positionMoins));
+                  console.log(partie1);
                   
-            let partie4;
-                partie4=parseInt(calcul.substring(positionMoins+1,table.length));
-                   console.log(partie4);
+            let partie2;
+                partie2=parseInt(calcul.substring(positionMoins+1,table.length));
+                   console.log(partie2);
                    
                    
-            let soustraction=partie3 - partie4;       
+            let soustraction=partie1 - partie2;       
             output.innerText=soustraction; 
             console.log(soustraction);
             
            table=[];   
            calcul="";
-           console.log(calcul);
                    
        } 
+       if(positionDivision!==-1){
+        calcul.trim;
+        let partie1;
+        partie1=parseInt(calcul.substring(0,positionDivision));
+          console.log(partie1);
+          
+        let partie2;
+        partie2=parseInt(calcul.substring(positionDivision+1,table.length));
+           console.log(partie2);
+           
+           
+    let division=partie1 / partie2;       
+    output.innerText=division; 
+    console.log(division);
+    
+   table=[];   
+   calcul="";
+           
+} 
 }
 
 //pour copier le contenu de table dans la chaine
