@@ -12,7 +12,7 @@ let valeur;
 let positionPlus=-1;
 let positionMoins=-1;
 let positionDivision=-1;
-let positionSoustraction=-1;
+let positionMultiplication=-1;
 let positionPoint=-1;
 
 //boucle forEach pout recuperer la valeur clique
@@ -43,7 +43,7 @@ buttonItem.forEach(item =>{ item.addEventListener('click',function(){
             positionDivision=table.length-1;
         }
         if(valeur===symboleMultiplication.innerText){
-            positionSoustraction=table.length-1;
+            positionMultiplication=table.length-1;
         }
         
     }
@@ -109,6 +109,8 @@ function resultat(){
            calcul="";
                    
        } 
+
+       //fonction division
        if(positionDivision!==-1){
         calcul.trim;
         let partie1;
@@ -123,6 +125,26 @@ function resultat(){
     let division=partie1 / partie2;       
     output.innerText=division; 
     console.log(division);
+    
+   table=[];   
+   calcul="";
+           
+} 
+    //fonction multiplication
+    if(positionMultiplication!==-1){
+        calcul.trim;
+        let partie1;
+        partie1=parseInt(calcul.substring(0,positionMultiplication));
+          console.log(partie1);
+          
+        let partie2;
+        partie2=parseInt(calcul.substring(positionMultiplication+1,table.length));
+           console.log(partie2);
+           
+           
+    let multiplication=partie1 * partie2;       
+    output.innerText=multiplication; 
+    console.log(multiplication);
     
    table=[];   
    calcul="";
