@@ -17,6 +17,7 @@ let positionPoint=-1;
 
 //boucle forEach pout recuperer la valeur clique
 buttonItem.forEach(item =>{ item.addEventListener('click',function(){
+
     //recurerer le texte du div clique
     valeur=this.innerText;
     
@@ -27,11 +28,14 @@ buttonItem.forEach(item =>{ item.addEventListener('click',function(){
     else{
         output.innerText=valeur;
         ajouter(valeur);
-        calcul+=valeur;
+         calcul+=valeur;
+        //appel de fonction copier
+        copier
         if(valeur==="+"){
             positionPlus=table.length-1;
+            console.log(positionPlus);
         }
-        if(valeur==="-" ){
+        if(valeur==="-"){
             positionMoins=table.length-1;
             
         }
@@ -41,7 +45,7 @@ buttonItem.forEach(item =>{ item.addEventListener('click',function(){
         if(valeur===symboleMultiplication.innerText){
             positionSoustraction=table.length-1;
         }
-        console.log(calcul);
+        
     }
     
 });
@@ -65,12 +69,50 @@ function ajouter(a){
 //pour calculer l'addition
 function resultat(){
          //pour calculer la somme
-         if(positionPlus!=-1){
-            let partie1=calcul.split(0,positionPlus);
-                  partie1=parseInt(partie1);
-            let partie2=calcul.split(positionPlus,calcul.length-1);
-                  partie2=parseInt(partie2);
-            output.innerText=partie1+partie2;            
-         }
+         if (positionPlus !== -1) {
+            calcul.trim;
+            console.log(calcul);
+            
+            // Utilisation de slice() pour obtenir les deux parties de la chaîne
+            let partie1 = calcul.slice(0, positionPlus);  // Récupère la partie avant le "+"
+            let partie2 = calcul.slice(positionPlus); // Récupère la partie après le "+"
+        
+            // Convertir les deux parties en nombres
+            partie1 = parseInt(calcul.substring(0, positionPlus));
+            partie2 = parseInt(calcul.substring(positionPlus+1,table.length));
+        
+            let somme = partie1 + partie2;
+                console.log(somme);
+                output.innerText = somme;
+        
+            table = [];  // Remettre la table à zéro
+            calcul="";
+            console.log(calcul);
+            
+        }
+             if(positionMoins!==-1){
+                calcul.trim;
+            let partie3;
+                partie3=parseInt(calcul.substring(0,positionMoins));
+                  console.log(partie3);
+                  
+            let partie4;
+                partie4=parseInt(calcul.substring(positionMoins+1,table.length));
+                   console.log(partie4);
+                   
+                   
+            let soustraction=partie3 - partie4;       
+            output.innerText=soustraction; 
+            console.log(soustraction);
+            
+           table=[];   
+           calcul="";
+           console.log(calcul);
+                   
+       } 
 }
 
+//pour copier le contenu de table dans la chaine
+function copier(){
+
+}
