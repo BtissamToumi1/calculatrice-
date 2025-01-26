@@ -53,10 +53,15 @@ buttonItem.forEach(item =>{ item.addEventListener('click',function(){
 });
 
 //pour supprimer les valeurs de la partie output
-function clear(){
-    output.innerText="";
+function clearr(){
+    console.log(4);
+    
+    output.innerHTML="";
     table=[];
-    console.log(table)
+    calcul="";
+    console.log(table);
+    console.log(calcul);
+    
 }
 
 //pour ajouter une valeur dans le tableau table
@@ -73,14 +78,18 @@ function resultat(){
             calcul.trim;
             console.log(calcul);
             
-            // Utilisation de slice() pour obtenir les deux parties de la chaîne
-            let partie1 = calcul.slice(0, positionPlus);  // Récupère la partie avant le "+"
-            let partie2 = calcul.slice(positionPlus); // Récupère la partie après le "+"
-        
+            // Utilisation de substring() pour obtenir les deux parties de la chaîne
+            let partie1=calcul.substring(0,positionPlus);
+            let partie2=calcul.substring(positionPlus+1,table.length); 
+            // if(positionPoint===-1){
             // Convertir les deux parties en nombres
-            partie1 = parseInt(calcul.substring(0, positionPlus));
-            partie2 = parseInt(calcul.substring(positionPlus+1,table.length));
-        
+            partie1 = parseFloat(partie1);// Récupère la partie avant le "+"
+            partie2 = parseFloat(partie2);// Récupère la partie après le "+"
+            console.log(partie2);
+            
+            //  }else{
+            //     if()
+            //  }
             let somme = partie1 + partie2;
                 console.log(somme);
                 output.innerText = somme;
@@ -92,16 +101,16 @@ function resultat(){
         }
              if(positionMoins!==-1){
                 calcul.trim;
-            let partie1;
-                partie1=parseInt(calcul.substring(0,positionMoins));
-                  console.log(partie1);
+            let partie3;
+                partie3=parseFloat(calcul.substring(0,positionMoins));
+                  console.log(partie3);
                   
-            let partie2;
-                partie2=parseInt(calcul.substring(positionMoins+1,table.length));
-                   console.log(partie2);
+            let partie4;
+                partie4=parseFloat(calcul.substring(positionMoins+1,table.length));
+                   console.log(partie4);
                    
                    
-            let soustraction=partie1 - partie2;       
+            let soustraction=partie3 - partie4;       
             output.innerText=soustraction; 
             console.log(soustraction);
             
@@ -114,11 +123,11 @@ function resultat(){
        if(positionDivision!==-1){
         calcul.trim;
         let partie1;
-        partie1=parseInt(calcul.substring(0,positionDivision));
+        partie1=parseFloat(calcul.substring(0,positionDivision));
           console.log(partie1);
           
         let partie2;
-        partie2=parseInt(calcul.substring(positionDivision+1,table.length));
+        partie2=parseFloat(calcul.substring(positionDivision+1,table.length));
            console.log(partie2);
            
            
@@ -134,11 +143,11 @@ function resultat(){
     if(positionMultiplication!==-1){
         calcul.trim;
         let partie1;
-        partie1=parseInt(calcul.substring(0,positionMultiplication));
+        partie1=parseFloat(calcul.substring(0,positionMultiplication));
           console.log(partie1);
           
         let partie2;
-        partie2=parseInt(calcul.substring(positionMultiplication+1,table.length));
+        partie2=parseFloat(calcul.substring(positionMultiplication+1,table.length));
            console.log(partie2);
            
            
